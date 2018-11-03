@@ -1,0 +1,17 @@
+a<-read.csv('E1.csv')
+names(a)=c('y','x1','x2','x3','x4','x5','x6','x7','x8','x9')
+summary(a)
+N=sapply(a,length)
+NU=sapply(a,mean)
+SD=sapply(a,sd)
+MIN=sapply(a,min)
+MED=sapply(a,median)
+MAX=sapply(a,max)
+result=cbind(N,NU,SD,MIN,MED,MAX)
+result
+lm1=lm(y~x1+x2+x3+x4+x5+x6+x7+x8+x9,data=a)
+lm1
+anova(lm1)
+summary(lm1)
+par(mfrow=c(2,2))
+plot(lm1)
